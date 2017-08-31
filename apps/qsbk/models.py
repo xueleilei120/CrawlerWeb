@@ -16,7 +16,7 @@ class QiuShiArticle(models.Model):
 
     def go_to(self):
         from django.utils.safestring import mark_safe
-        return mark_safe("<a href='{0}'>连接跳转</a>".format(self.url))
+        return mark_safe("<a href='{0}'>链接跳转</a>".format(self.url))
     go_to.short_description = u"跳转"
 
     def show_image(self):

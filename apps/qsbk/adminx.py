@@ -15,7 +15,7 @@ class GlobalSettings(object):
     menu_style = "accordion"
 
 
-# 分类后台管理
+# 糗事百科后台管理
 class QiuShiArticleAdmin(object):
     list_display = ['author', 'content', 'show_image', 'crawl_time', 'go_to']
     search_fields = ['author', 'content']

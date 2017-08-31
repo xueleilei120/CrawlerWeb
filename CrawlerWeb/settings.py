@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Django settings for CrawlerWeb project.
 
@@ -41,9 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'qsbk',
     'xadmin',
     'crispy_forms',
+    'qsbk',
+    'zhilian',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -78,24 +78,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'CrawlerWeb.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'crawlerweb',
-#         'USER': 'root',
-#         'PASSWORD': 'pass',
-#         'HOST': '127.0.0.1',
-#     }
-# }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'xueleilei$crawlerweb',
-        'USER': 'xueleilei',
-        'PASSWORD': '86816137chao',
-        'HOST': 'xueleilei.mysql.pythonanywhere-services.com',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'crawlerweb',
+            'USER': 'root',
+            'PASSWORD': 'pass',
+            'HOST': '127.0.0.1',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'xueleilei$crawlerweb',
+            'USER': 'xueleilei',
+            'PASSWORD': '86816137chao',
+            'HOST': 'xueleilei.mysql.pythonanywhere-services.com',
+        }
+    }
 
 
 # Password validation
@@ -133,11 +135,12 @@ USE_TZ = False
 
 # 自己在本地使用过 collections 所以 static 会从record下的static查找，在换model_icon时必须替换record下static
 STATIC_URL = '/static/'
-
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),  # tuble 中只有一个元素的时候必须加一个,
-# )
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+if DEBUG:
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),  # tuble 中只有一个元素的时候必须加一个,
+    )
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 # html 中静态调用图片的根目录
