@@ -16,7 +16,7 @@ PLUGINS = (
     'topnav', 
     'portal', 
     'quickform',
-    'wizard', 
+    # 'wizard',
     'images', 
     'auth', 
     'multiselect', 
