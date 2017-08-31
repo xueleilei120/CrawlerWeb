@@ -91,10 +91,10 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'liuyc2$onlinenotes',
-            'USER': 'liuyc2',
+            'NAME': 'xueleilei$crawlerweb',
+            'USER': 'xueleilei',
             'PASSWORD': '86816137chao',
-            'HOST': 'liuyc2.mysql.pythonanywhere-services.com',
+            'HOST': 'xueleilei.mysql.pythonanywhere-services.com',
         }
     }
 
