@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 SECRET_KEY = 'tu1t5!(wl4r%yx1m7o6p&+#sxmmo8f(+v%9x7&jrop*2loe5u5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -134,10 +134,13 @@ USE_TZ = False
 
 # 自己在本地使用过 collections 所以 static 会从record下的static查找，在换model_icon时必须替换record下static
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),  # tuble 中只有一个元素的时候必须加一个,
-)
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+if DEBUG:
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),  # tuble 中只有一个元素的时候必须加一个,
+    )
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 # html 中静态调用图片的根目录
